@@ -1,0 +1,41 @@
+import React, { memo, useState } from 'react'
+
+import { checkTodo } from '../store/todo';
+
+import { Checkbox, message } from 'antd';
+
+type TodoBoxProps={
+  id:number;
+  title:string;
+  completed:boolean;
+  testDispatch:any;
+}
+
+const TodoBox = ({id,title,completed,testDispatch}:TodoBoxProps) => {
+  const [isLoading, setLoading] = useState(false)
+  const handleCompletion =()=>{
+    message.loading('변경사항 반영중..',1)
+    setLoading(true)
+    checkTodo(testDispatch, id,title,!completed).then(res=>{
+      message.success('업데이트 완료', 1)
+    }).catch(e=>{
+      message.error(e.message, 1)
+    }).finally(()=>{
+      setLoading(false)
+    })
+  }
+
+  return (
+    <div>
+      <Checkbox
+        onChange={handleCompletion}
+        disabled={isLoading }
+        checked={completed}
+        >
+          {title}
+      </Checkbox>
+    </div>
+  )
+}
+
+export default memo(TodoBox)
