@@ -1,5 +1,3 @@
-import React, { useContext } from 'react'
-
 import styled from '@emotion/styled';
 
 import InputContainer from './components/InputContainer';

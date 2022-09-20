@@ -1,7 +1,9 @@
-import styled from '@emotion/styled';
-import { List, Typography } from 'antd';
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
+
 import { useConetextState, useContextDispatch, getTodos, TodoInterface } from '../store/todo'
+
+import styled from '@emotion/styled';
+
 import TodoBox from './TodoBox';
 
 const Container = styled.div`
@@ -35,7 +37,7 @@ const TodoBoxContainer = () => {
   const dispatch = useContextDispatch();
   useEffect(() => {
     getTodos(dispatch)
-  }, [])
+  })
 
   return (
     <Container>

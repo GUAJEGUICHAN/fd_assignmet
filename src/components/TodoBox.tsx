@@ -1,6 +1,6 @@
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 
-import { checkTodo } from '../store/todo';
+import { checkTodo, ToDoDispatch } from '../store/todo';
 
 import { Checkbox, message } from 'antd';
 
@@ -8,7 +8,7 @@ type TodoBoxProps={
   id:number;
   title:string;
   completed:boolean;
-  testDispatch:any;
+  testDispatch:ToDoDispatch;
 }
 
 const TodoBox = ({id,title,completed,testDispatch}:TodoBoxProps) => {
@@ -16,7 +16,7 @@ const TodoBox = ({id,title,completed,testDispatch}:TodoBoxProps) => {
   const handleCompletion =()=>{
     message.loading('변경사항 반영중..',1)
     setLoading(true)
-    checkTodo(testDispatch, id,title,!completed).then(res=>{
+    checkTodo(testDispatch, id,title,!completed).then(()=>{
       message.success('업데이트 완료', 1)
     }).catch(e=>{
       message.error(e.message, 1)

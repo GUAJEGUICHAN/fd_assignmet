@@ -1,7 +1,6 @@
 import { createContext, Dispatch, useContext } from "react";
 import axios from 'axios'
 
-
 export interface TodoInterface {
   userId: number;
   id: number;
