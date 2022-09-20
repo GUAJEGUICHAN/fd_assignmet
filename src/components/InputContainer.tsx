@@ -34,6 +34,7 @@ const InputContainer = () => {
   }
   return (
     <Input.Search
+      maxLength={100}
       placeholder="할 일을 입력하세요"
       allowClear
       enterButton="Add"
