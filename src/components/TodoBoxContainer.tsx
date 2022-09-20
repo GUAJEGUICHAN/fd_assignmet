@@ -37,7 +37,7 @@ const TodoBoxContainer = () => {
   const dispatch = useContextDispatch();
   useEffect(() => {
     getTodos(dispatch)
-  })
+  },[])
 
   return (
     <Container>
