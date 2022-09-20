@@ -13,7 +13,6 @@ const App = () => {
       <AppInner/>
       </DispatchContext.Provider >
     </ToDoContext.Provider>
-
   )
 }
 
