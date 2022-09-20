@@ -55,7 +55,7 @@ const TodoBoxContainer = () => {
             id={data.id}
             completed={data.completed}
             title={data.title}
-            testDispatch={dispatch}
+            dispatch={dispatch}
           />
         ))
         }
@@ -78,7 +78,7 @@ const TodoBoxContainer = () => {
             id={data.id}
             completed={data.completed}
             title={data.title}
-            testDispatch={dispatch}
+            dispatch={dispatch}
           />
         ))
         }

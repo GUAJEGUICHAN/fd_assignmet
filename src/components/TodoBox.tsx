@@ -8,15 +8,15 @@ type TodoBoxProps={
   id:number;
   title:string;
   completed:boolean;
-  testDispatch:ToDoDispatch;
+  dispatch:ToDoDispatch;
 }
 
-const TodoBox = ({id,title,completed,testDispatch}:TodoBoxProps) => {
+const TodoBox = ({id,title,completed,dispatch}:TodoBoxProps) => {
   const [isLoading, setLoading] = useState(false)
   const handleCompletion =()=>{
     message.loading('변경사항 반영중..',1)
     setLoading(true)
-    checkTodo(testDispatch, id,title,!completed).then(()=>{
+    checkTodo(dispatch, id,title,!completed).then(()=>{
       message.success('업데이트 완료', 1)
     }).catch(e=>{
       message.error(e.message, 1)
